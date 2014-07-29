@@ -20,9 +20,12 @@ namespace Equilibirum
     /// </summary>
     public partial class MainWindow : Window
     {
+        private World world;
+
         public MainWindow()
         {
             InitializeComponent();
+            world = new World();
         }
 
         void Window_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
@@ -94,6 +97,11 @@ namespace Equilibirum
             e.RotationBehavior.DesiredDeceleration = 720 / (1000.0 * 1000.0);
 
             e.Handled = true;
+        }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            world.TestHouse();
         }
     }
 }

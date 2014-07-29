@@ -9,16 +9,12 @@ namespace Equilibirum.GameObjects
 {
     interface GameObject
     {
-        public GameObject()
-        {
 
-        }
+        void draw();
 
-        public void draw();
+        Rectangle boundingBox();
 
-        public Rectangle boundingBox();
-
-        public string getName();
+        string getName();
 
 
     }

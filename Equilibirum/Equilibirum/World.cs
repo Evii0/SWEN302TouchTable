@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 
 namespace Equilibirum
@@ -26,7 +27,10 @@ namespace Equilibirum
             throw new NotImplementedException();
         }
 
-
+        public void TestHouse(){
+            gameObjects[0,0] = new House(new Point(0,0), "House");
+            Console.WriteLine("House added via method.");
+        }
 
 
     }
