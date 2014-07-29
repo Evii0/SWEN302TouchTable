@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Equilibirum.GameObjects
 {
     class House : GameObject
     {
         private Point coord;
-        private string name;
+        private string name = "house";
+        private int width;
+        private int height;
 
         public House(Point coord, string name)
         {
@@ -18,19 +21,20 @@ namespace Equilibirum.GameObjects
             this.name = name;
         }
 
-        public void draw()
+        public void draw(Canvas c)
         {
-            throw new NotImplementedException();
+           //TODO
         }
 
-        public System.Windows.Shapes.Rectangle boundingBox()
+        public int[] boundingBox()
         {
-            throw new NotImplementedException();
+            int[] box = { (int)coord.X, (int)coord.Y, width, height };
+            return box;
         }
 
         public string getName()
         {
-            throw new NotImplementedException();
+            return name;
         }
     }
 }
