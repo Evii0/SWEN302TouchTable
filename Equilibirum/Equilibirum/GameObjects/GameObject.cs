@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Shapes;
 
 namespace Equilibirum.GameObjects
 {
     interface GameObject
     {
-        public GameObject()
-        {
 
-        }
+       void draw(Canvas c);
 
-        public void draw();
+       int[] boundingBox();
 
-        public Rectangle boundingBox();
-
-        public string getName();
+       string getName();
 
 
     }
