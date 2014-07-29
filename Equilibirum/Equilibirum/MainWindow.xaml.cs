@@ -26,6 +26,17 @@ namespace Equilibirum
         {
             InitializeComponent();
             world = new World();
+            Touch.FrameReported += new TouchFrameEventHandler(Touch_FrameReported);
+        }
+        void Touch_FrameReported(object sender, TouchFrameEventArgs e)
+        {
+            if (this.mainCanvas != null)
+            {
+                foreach (TouchPoint _touchPoint in e.GetTouchPoints(this.mainCanvas))
+                {
+                    
+                }
+            }
         }
 
         void Window_ManipulationStarting(object sender, ManipulationStartingEventArgs e)

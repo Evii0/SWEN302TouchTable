@@ -29,7 +29,7 @@
 
     </Window.Resources>
 
-    <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Background="White">
+    <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Background="White" Name="mainCanvas">
         <Rectangle Fill="Red" Name="manRect"
                  Width="200" Height="200" 
                  RenderTransform="{StaticResource InitialMatrixTransform}"
