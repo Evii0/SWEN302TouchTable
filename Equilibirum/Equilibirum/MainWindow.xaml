@@ -29,24 +29,20 @@
 
     </Window.Resources>
 
-    <Canvas Name="mainCanvas">
-        <Canvas>
-            
-        </Canvas>
-        <Canvas>
-            
-        </Canvas>
+    <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Background="White">
+        <Rectangle Fill="Red" Name="manRect"
+                 Width="200" Height="200" 
+                 RenderTransform="{StaticResource InitialMatrixTransform}"
+                 IsManipulationEnabled="true" Canvas.Left="38" Canvas.Top="90" />
 
-        <Rectangle Fill="Green" Name="palette"
-                 Width="700" Height="200" 
+        <Rectangle Fill="Green" Name="manRect1"
+                 Width="200" Height="200" 
                  RenderTransform="{StaticResource InitialMatrixTransform1}"
-                 IsManipulationEnabled="true" Canvas.Left="387" Canvas.Top="-198" />
+                 IsManipulationEnabled="true" Canvas.Left="281" Canvas.Top="-70" />
 
         <Rectangle Fill="Orange" Name="manRect2"
-                 Width="65" Height="62" 
+                 Width="200" Height="200" 
                  RenderTransform="{StaticResource InitialMatrixTransform2}"
-                 IsManipulationEnabled="true" Canvas.Left="487" Canvas.Top="-128" />
-        <Image Name="image1" Height="162" Canvas.Left="454" Canvas.Top="298" Width="235"/>
+                 IsManipulationEnabled="true" Canvas.Left="-172" Canvas.Top="-144" />
     </Canvas>
-
 </Window>

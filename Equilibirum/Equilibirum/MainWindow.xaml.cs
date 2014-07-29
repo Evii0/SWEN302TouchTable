@@ -20,28 +20,12 @@ namespace Equilibirum
     /// </summary>
     public partial class MainWindow : Window
     {
+        private World world;
+
         public MainWindow()
         {
             InitializeComponent();
-            Touch.FrameReported += new TouchFrameEventHandler(Touch_FrameReported);
-        }
-
-        void Touch_FrameReported(object sever, TouchFrameEventArgs e)
-        {
-            if (this.mainCanvas != null)
-            {
-                foreach (TouchPoint _touchPoint in e.GetTouchPoints(mainCanvas))
-                {
-                    Rectangle r = new Rectangle();
-                    r.Stroke = new SolidColorBrush(Colors.Black);
-                    r.Fill = new SolidColorBrush(Colors.Black);
-                    r.Width = 5;
-                    r.Height = 5;
-                    Canvas.SetLeft(r, _touchPoint.Position.X);
-                    Canvas.SetTop(r, _touchPoint.Position.Y);
-                    mainCanvas.Children.Add(r);
-                }
-            }
+            world = new World();
         }
 
         void Window_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
@@ -52,10 +36,22 @@ namespace Equilibirum
 
         void Window_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
+
             // Get the Rectangle and its RenderTransform matrix.
             Rectangle rectToMove = e.OriginalSource as Rectangle;
-            if (rectToMove.Name == "palatte") return;
             Matrix rectsMatrix = ((MatrixTransform)rectToMove.RenderTransform).Matrix;
+
+            // Rotate the Rectangle.
+            rectsMatrix.RotateAt(e.DeltaManipulation.Rotation,
+                                 e.ManipulationOrigin.X,
+                                 e.ManipulationOrigin.Y);
+
+            // Resize the Rectangle.  Keep it square 
+            // so use only the X value of Scale.
+            rectsMatrix.ScaleAt(e.DeltaManipulation.Scale.X,
+                                e.DeltaManipulation.Scale.X,
+                                e.ManipulationOrigin.X,
+                                e.ManipulationOrigin.Y); //hi
 
             // Move the Rectangle.
             rectsMatrix.Translate(e.DeltaManipulation.Translation.X,
@@ -101,6 +97,11 @@ namespace Equilibirum
             e.RotationBehavior.DesiredDeceleration = 720 / (1000.0 * 1000.0);
 
             e.Handled = true;
+        }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            world.TestHouse();
         }
     }
 }
