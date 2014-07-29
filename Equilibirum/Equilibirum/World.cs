@@ -31,7 +31,5 @@ namespace Equilibirum
             gameObjects[0,0] = new House(new Point(0,0), "House");
             Console.WriteLine("House added via method.");
         }
-
-
     }
 }

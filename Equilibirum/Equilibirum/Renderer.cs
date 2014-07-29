@@ -8,5 +8,10 @@ namespace Equilibirum
 {
     class Renderer
     {
+        World world;
+
+        public Renderer(World world){
+            this.world = world;
+        }
     }
 }
