@@ -15,7 +15,7 @@ namespace Equilibirum.GameObjects
 
        int[] boundingBox();
 
-       string getName();
+        string getName();
 
 
     }
